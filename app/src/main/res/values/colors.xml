@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="whiteColor">#FFFFFF</color>
+    <color name="primaryColor">#003F5E</color>
+    <color name="backgroundColor">#F5F5F5</color>
+    <color name="secondaryColor">#F2CE3F</color>
+    <color name="statusRed">#F1433F</color>
+    <color name="statusYellow">#F7E967</color>
+    <color name="statusGreen">#A9CF54</color>
+    <color name="statusGrey">#3D4C53</color>
+    <color name="btnGreen">#A9CF54</color>
+    <color name="btnCancel">#F1433F</color>
 </resources>
