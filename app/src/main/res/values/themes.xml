@@ -1,13 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MyCPDTracker" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
+
+    <style name="Theme.MyCPDTracker" parent="Theme.AppCompat.Light.DarkActionBar" >
+
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorSecondary">@color/secondaryColor</item>
-        <item name="colorOnBackground">@color/backgroundColor</item>
-        <item name="textAppearanceBody1">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/whiteColor</item>
+        <item name="android:colorBackground">@color/backgroundColor</item>
+        <item name="colorControlNormal">@color/whiteColor</item>
+
 
     </style>
-
-    <style name="Theme.MyCPDTracker" parent="Base.Theme.MyCPDTracker" />
 </resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextNormal" >
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:textSize">14sp</item>
+
+    </style>
+
+    <style name="TextBoldSmallTitles" >
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextBoldLargeTitles" >
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="TextActionbarTitle" >
+        <item name="titleTextColor">@color/whiteColor</item>
+        <item name="titleTextStyle">@font/roboto_bold</item>
+        <item name="android:textSize">100sp</item>
+
+    </style>
+
+
+
+</resources>
