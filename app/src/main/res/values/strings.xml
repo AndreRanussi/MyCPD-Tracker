@@ -10,9 +10,11 @@
         <item>Academic</item>
     </string-array>
 
-    <string-array name="time_frame">
+    <string-array name="timeFrame">
         <item>Short Term</item>
         <item>Medium Term</item>
         <item>Long Term</item>
     </string-array>
+
+
 </resources>

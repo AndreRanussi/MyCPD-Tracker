@@ -9,30 +9,51 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMainActivity"
+
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/primaryColor"
+
+        style="@style/textActionbarTitle"
+        app:titleTextAppearance="@style/textActionbarTitle"
         app:title="@string/app_name"
 
-        android:background="@color/primaryColor"
-         android:theme="@style/TextActionbarTitle"
-
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
 
 
         />
 
+
     <Button
+        android:id="@+id/button2"
+        style="@style/btnStyle"
         android:layout_width="163dp"
         android:layout_height="34dp"
-        android:text="Test"
-        android:textSize="20sp"
-        android:background="@drawable/save_button"
+
+        android:background="@drawable/button_cancel"
+
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMainActivity" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/btnStyle"
+        android:layout_width="163dp"
+        android:layout_height="34dp"
+
+
+        android:background="@drawable/button_save"
+
+        android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/toolbarMainActivity" />
 
 

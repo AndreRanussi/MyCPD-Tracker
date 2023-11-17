@@ -13,11 +13,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding?.root)
 
         // Action back button display
-        setSupportActionBar(binding?.toolbarMainActivity)
-        if(supportActionBar != null) {
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        }
-
-
+//        setSupportActionBar(binding?.toolbarMainActivity)
+//        if(supportActionBar != null) {
+//            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        }
     }
 }
