@@ -24,35 +24,21 @@
 
         />
 
+    <TextView
+        android:id="@+id/tvMainTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/textBoldLargeTitles"
+        android:text="@string/title"
 
-    <Button
-        android:id="@+id/button2"
-        style="@style/btnStyle"
-        android:layout_width="163dp"
-        android:layout_height="34dp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
 
-        android:background="@drawable/button_cancel"
-
-        android:text="Cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarMainActivity" />
-
-    <Button
-        android:id="@+id/button"
-        style="@style/btnStyle"
-        android:layout_width="163dp"
-        android:layout_height="34dp"
-
-
-        android:background="@drawable/button_save"
-
-        android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarMainActivity" />
+        app:layout_constraintTop_toBottomOf="@id/toolbarMainActivity"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
