@@ -2,8 +2,8 @@
     <string name="app_name">MyCPD Tracker</string>
     <string name="title">Title</string>
     <string name="date">12/10/2023</string>
-    <string name="startDateTitle">Start</string>
-    <string name="endDateTitle">End</string>
+    <string name="startDateTitle">Start:</string>
+    <string name="endDateTitle">End:</string>
 
 
 

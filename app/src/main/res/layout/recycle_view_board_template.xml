@@ -27,15 +27,64 @@
   <TextView
       android:id="@+id/tvGoalTitle"
       style="@style/textBoldSmallTitles"
-      android:layout_width="324dp"
+      android:layout_width="0dp"
       android:layout_height="24dp"
+      android:layout_marginStart="10dp"
+
 
       android:text="@string/title"
 
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.492"
+      app:layout_constraintEnd_toEndOf=""
       app:layout_constraintStart_toEndOf="@id/ivStatusCircle"
       app:layout_constraintTop_toTopOf="parent" />
+
+
+  <CheckBox
+      android:id="@+id/cbCompleted"
+      android:layout_width="27dp"
+      android:layout_height="27dp"
+      android:background="@drawable/check_box_boarders"
+      android:layout_marginEnd="10dp"
+      
+
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+
+      />
+
+  <TextView
+      android:id="@+id/tvStartDateTitle"
+
+      style="@style/textBoldSmallTitles"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:padding="3dp"
+
+      android:text="@string/startDateTitle"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/ivStatusCircle"
+   />
+
+  <TextView
+      android:id="@+id/tvStartDate"
+
+      style="@style/textNormal"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:padding="3dp"
+      android:paddingStart="1dp"
+
+
+
+      android:text="@string/date"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toEndOf="@id/tvStartDateTitle"
+      app:layout_constraintTop_toBottomOf="@+id/tvGoalTitle"
+      />
 
   <TextView
       android:id="@+id/tvEndDateTitle"
@@ -45,14 +94,31 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="10dp"
       android:padding="3dp"
+      android:layout_marginStart="25dp"
 
-
-
-      android:text="@string/startDateTitle"
+      android:text="@string/endDateTitle"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/ivStatusCircle"
-   />
+      app:layout_constraintStart_toEndOf="@id/tvStartDate"
+      app:layout_constraintTop_toBottomOf="@+id/tvGoalTitle"
+      />
+
+  <TextView
+      android:id="@+id/tvEndDate"
+
+      style="@style/textNormal"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:padding="3dp"
+      android:paddingStart="1dp"
+
+      android:text="@string/date"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toEndOf="@id/tvEndDateTitle"
+      app:layout_constraintTop_toBottomOf="@+id/tvGoalTitle"
+      />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
