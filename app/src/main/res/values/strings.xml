@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyCPD Tracker</string>
+    <string name="app_name">MyCPD</string>
     <string name="title">Title</string>
     <string name="date">12/10/2023</string>
     <string name="startDateTitle">Start:</string>
