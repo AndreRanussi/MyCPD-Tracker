@@ -35,15 +35,22 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="textField" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_margin">5dp</item>
-        <item name="boxStrokeColor">@color/hintColor</item>
-
-
-
+    <style name="textInputLayout" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_marginStart">7dp</item>
+        <item name="android:layout_marginEnd">7dp</item>
+        <item name="boxStrokeColor">@color/primaryColor</item>
+        <item name="errorEnabled">true</item>
+        <item name="android:textColorHint">@color/hintColor</item>
     </style>
 
 
+    <style name="textInputLayoutDropDown" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="android:layout_marginStart">7dp</item>
+        <item name="android:layout_marginEnd">7dp</item>
+        <item name="boxStrokeColor">@color/primaryColor</item>
+        <item name="errorEnabled">true</item>
+        <item name="android:textColorHint">@color/hintColor</item>
+    </style>
 
 
 

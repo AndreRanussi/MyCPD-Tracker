@@ -1,63 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.NewGoalActivity"
-    android:background="@color/backgroundColor">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarNewGoalActivity"
+     android:layout_height="match_parent" android:layout_width="match_parent">
 
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/primaryColor"
-
-        style="@style/textActionbarTitle"
-        app:titleTextAppearance="@style/textActionbarTitle"
-        app:title="New Goal"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        />
-
-    <com.google.android.material.textfield.TextInputLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/textField"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarNewGoalActivity"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textAlignment="center"
-        android:hint="Goal Title"
+        tools:context=".activities.NewGoalActivity"
+        android:background="@color/backgroundColor">
 
 
-        app:helperText="*Required"
-        app:helperTextTextColor="@color/primaryColor"
-        app:errorEnabled="true"
-        app:errorTextColor="@color/statusRed"
-        android:textColorHint="@color/hintColor"
-        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarNewGoalActivity"
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etGoalTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textStyle="bold"
-            android:textColor="@color/primaryColor"
-            android:textSize="24sp"
-            android:textAlignment="center"
-            android:padding="4dp"
-            android:gravity="center"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/primaryColor"
+
+            style="@style/textActionbarTitle"
+            app:titleTextAppearance="@style/textActionbarTitle"
+            app:title="New Goal"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
             />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiGoalTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            style="@style/textInputLayout"
+            android:textAlignment="center"
+            android:hint="Goal Title"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarNewGoalActivity"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etGoalTitle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textStyle="bold"
+                android:textColor="@color/primaryColor"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:padding="8dp"
+                android:gravity="center"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiTimeFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/textInputLayoutDropDown"
+            android:hint="Time Frame"
+
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tiGoalTitle"
+            app:layout_constraintEnd_toStartOf="@id/tiCategory"
+            >
+
+            <AutoCompleteTextView
+                android:id="@+id/ddTimeFrame"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                style="@style/textNormal"
+                />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiCategory"
+            style="@style/textInputLayoutDropDown"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Category"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tiTimeFrame"
+            app:layout_constraintTop_toBottomOf="@id/tiGoalTitle">
+
+            <AutoCompleteTextView
+                android:id="@+id/ddCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                style="@style/textNormal"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiGoalDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            style="@style/textInputLayout"
+            android:hint="Goal Details"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tiTimeFrame"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etGoalDetails"
+                style="@style/textNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minHeight="50dp"
+                android:padding="8dp"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiActionRequired"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            style="@style/textInputLayout"
+            android:hint="Action Required"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tiGoalDetails"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etActionRequired"
+                style="@style/textNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minHeight="50dp"
+                android:padding="8dp"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiAvailableResources"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            style="@style/textInputLayout"
+            android:hint="Available Resources"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tiActionRequired"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAvailableResources"
+                style="@style/textNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minHeight="50dp"
+                android:padding="8dp"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiSuccessCriteria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            style="@style/textInputLayout"
+            android:hint="Success Criteria"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tiAvailableResources"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSuccessCriteria"
+                style="@style/textNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minHeight="50dp"
+                android:padding="8dp"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+
+
+
+

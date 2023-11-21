@@ -8,6 +8,8 @@
         <item name="colorOnPrimary">@color/whiteColor</item>
         <item name="android:colorBackground">@color/backgroundColor</item>
         <item name="colorControlNormal">@color/whiteColor</item>
+        <item name="colorSurface">@color/whiteColor</item>
+        <item name="colorOnSurface">@color/whiteColor</item>
 
     </style>
 

@@ -3,6 +3,10 @@ package com.course.mycpdtracker.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import androidx.core.content.ContentProviderCompat.requireContext
+import com.course.mycpdtracker.R
 import com.course.mycpdtracker.databinding.ActivityNewGoalBinding
 
 class NewGoalActivity : AppCompatActivity() {
@@ -23,7 +27,20 @@ class NewGoalActivity : AppCompatActivity() {
             onBackPressedDispatcher.onBackPressed()
         }
 
+        var timeFrame: Array<String> = resources.getStringArray(R.array.timeFrame)
+        var timeFramaAdapter= ArrayAdapter(this, R.layout.dropdown_item, timeFrame)
+        binding?.ddTimeFrame?.setAdapter(timeFramaAdapter)
+
+        var category: Array<String> = resources.getStringArray(R.array.categories)
+        var categoryAdapter = ArrayAdapter(this, R.layout.dropdown_item, category)
+        binding?.ddCategory?.setAdapter(categoryAdapter)
+
+
+
     }
+
+
+
 
 
 
