@@ -11,6 +11,12 @@
     <color name="btnSave">#A9CF54</color>
     <color name="btnCancel">#F1433F</color>
     <color name="btnPressed">#60003F5E</color>
+    <color name="hintColor">#80003F5E</color>
+
+<!--    Text Input out of focused stroke colour-->
+    <color name="mtrl_textinput_default_box_stroke_color">#80003F5E</color>
+
+
     
 
 

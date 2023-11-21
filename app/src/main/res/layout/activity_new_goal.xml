@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.NewGoalActivity"
+    android:background="@color/backgroundColor">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarNewGoalActivity"
+
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/primaryColor"
+
+        style="@style/textActionbarTitle"
+        app:titleTextAppearance="@style/textActionbarTitle"
+        app:title="New Goal"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/textField"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarNewGoalActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAlignment="center"
+        android:hint="Goal Title"
+
+
+        app:helperText="*Required"
+        app:helperTextTextColor="@color/primaryColor"
+        app:errorEnabled="true"
+        app:errorTextColor="@color/statusRed"
+        android:textColorHint="@color/hintColor"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etGoalTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:textColor="@color/primaryColor"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:padding="4dp"
+            android:gravity="center"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,9 +8,6 @@
     <string name="btnAddNew">ADD NEW</string>
 
 
-
-
-
     <string-array name="categories">
         <item>Personal</item>
         <item>Professional</item>

@@ -1,5 +1,6 @@
-package com.course.mycpdtracker.Activities
+package com.course.mycpdtracker.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.course.mycpdtracker.databinding.ActivityMainBinding
@@ -12,10 +13,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        // Action back button display
-//        setSupportActionBar(binding?.toolbarMainActivity)
-//        if(supportActionBar != null) {
-//            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        }
+
+        binding?.btnAddGoal?.setOnClickListener{
+            var i = Intent(this, NewGoalActivity::class.java)
+            startActivity(i)
+        }
+
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }

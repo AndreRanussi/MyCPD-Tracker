@@ -35,6 +35,14 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="textField" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_margin">5dp</item>
+        <item name="boxStrokeColor">@color/hintColor</item>
+
+
+
+    </style>
+
 
 
 
