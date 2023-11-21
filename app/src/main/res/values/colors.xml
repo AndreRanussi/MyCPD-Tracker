@@ -10,4 +10,9 @@
     <color name="statusGrey">#3D4C53</color>
     <color name="btnSave">#A9CF54</color>
     <color name="btnCancel">#F1433F</color>
+    <color name="btnPressed">#60003F5E</color>
+    
+
+
 </resources>
+

@@ -1,4 +1,4 @@
-package MainActivity
+package com.course.mycpdtracker.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

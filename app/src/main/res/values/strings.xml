@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">MyCPD</string>
-    <string name="title">Title</string>
+    <string name="titlePlaceholder">Title</string>
+    <string name="goalTitle">Goals</string>
     <string name="date">12/10/2023</string>
     <string name="startDateTitle">Start:</string>
     <string name="endDateTitle">End:</string>
     <string name="btnAddNew">ADD NEW</string>
+
+
+
 
 
     <string-array name="categories">
