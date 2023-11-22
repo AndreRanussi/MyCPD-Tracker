@@ -264,6 +264,40 @@
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <android.widget.Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            style="@style/btnStyle"
+            android:background="@drawable/button_save"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+
+            app:layout_constraintTop_toBottomOf="@id/tiStartDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnCancel"
+            />
+
+        <android.widget.Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="CANCEL"
+            style="@style/btnStyle"
+            android:background="@drawable/button_cancel"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+
+            app:layout_constraintTop_toBottomOf="@id/tiEndDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnSave"
+            />
+
+
+
 
 
 

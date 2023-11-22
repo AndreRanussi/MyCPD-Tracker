@@ -14,11 +14,10 @@
     </style>
 
     <style name="DatePickerTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
-        ...
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorOnPrimary">@color/whiteColor</item>
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+        <item name="colorOnSurface">@color/primaryColor</item>
+
     </style>
 
     <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">

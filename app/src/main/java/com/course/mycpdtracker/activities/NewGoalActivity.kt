@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import com.course.mycpdtracker.R
 import com.course.mycpdtracker.databinding.ActivityNewGoalBinding
+import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -40,17 +41,47 @@ class NewGoalActivity : AppCompatActivity() {
 
 
         binding?.tiStartDate?.setEndIconOnClickListener {
+            val constraintsBuilder = CalendarConstraints.Builder()
+                .setStart(parseDateStringToMilliseconds("01/01/2020"))
+                .setEnd(parseDateStringToMilliseconds("01/01/2030"))
+                .build()
             val datePicker = MaterialDatePicker.Builder.datePicker()
                 .setTheme(R.style.DatePickerTheme)
                 .setTitleText("Select a Start Date")
                 .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                .setCalendarConstraints(constraintsBuilder)
                 .build()
 
-            datePicker.show(this. supportFragmentManager, "TAG")
+            datePicker.show(this.supportFragmentManager, "TAG")
 
-           datePicker.addOnPositiveButtonClickListener {
-               binding?.etStartDate?.setText(milisescondsToDateFromater(it))
+            datePicker.addOnPositiveButtonClickListener {
+               binding?.etStartDate?.setText(parseMillisecondsToDateFormatter(it))
            }
+
+        }
+
+        binding?.tiEndDate?.setEndIconOnClickListener{
+            val constraintBuilder = CalendarConstraints.Builder()
+                .setStart(parseDateStringToMilliseconds("01/01/2020"))
+                .setEnd(parseDateStringToMilliseconds("01/01/2030"))
+                .build()
+            val datePicker = MaterialDatePicker.Builder.datePicker()
+                .setTheme(R.style.DatePickerTheme)
+                .setTitleText("Select an End Date")
+                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                .setCalendarConstraints(constraintBuilder)
+                .build()
+
+            datePicker.show(this.supportFragmentManager, "TAG")
+
+            datePicker.addOnPositiveButtonClickListener {
+                binding?.etEndDate?.setText(parseMillisecondsToDateFormatter(it))
+            }
+        }
+
+        binding?.btnSave?.setOnClickListener {
+
+
 
         }
 
@@ -58,12 +89,22 @@ class NewGoalActivity : AppCompatActivity() {
 
     }
 
-    fun milisescondsToDateFromater(miliseconds: Long): String {
+
+    private fun parseMillisecondsToDateFormatter(milliseconds : Long): String {
         val utc = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
-        utc.timeInMillis = miliseconds
+        utc.timeInMillis = milliseconds
         val format = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         return format.format(utc.timeInMillis)
     }
+    private fun parseDateStringToMilliseconds(dateString: String): Long {
+        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val date = sdf.parse(dateString)
+        return date.time
+    }
+
+
+
+
 
 
 
