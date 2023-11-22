@@ -39,14 +39,17 @@
         <item name="android:layout_marginStart">7dp</item>
         <item name="android:layout_marginEnd">7dp</item>
         <item name="boxStrokeColor">@color/primaryColor</item>
+        <item name="boxBackgroundColor">@color/whiteColor</item>
         <item name="errorEnabled">true</item>
         <item name="android:textColorHint">@color/hintColor</item>
+        <item name="endIconTint">@color/primaryColor</item>
     </style>
 
 
     <style name="textInputLayoutDropDown" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
         <item name="android:layout_marginStart">7dp</item>
         <item name="android:layout_marginEnd">7dp</item>
+        <item name="boxBackgroundColor">@color/whiteColor</item>
         <item name="boxStrokeColor">@color/primaryColor</item>
         <item name="errorEnabled">true</item>
         <item name="android:textColorHint">@color/hintColor</item>
