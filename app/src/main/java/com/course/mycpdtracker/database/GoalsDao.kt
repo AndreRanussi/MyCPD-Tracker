@@ -16,9 +16,9 @@ interface GoalsDao {
     suspend fun deleteGoal(goalsEntity: GoalsEntity)
 
    @Query("SELECT * FROM goalsentity ORDER BY startDate")
-   fun getGoals(): Flow<List<GoalsEntity>>
+   fun fetchAllGoals(): Flow<List<GoalsEntity>>
 
     @Query("SELECT * FROM GoalsEntity WHERE id = :id")
-    fun getContactById(id: Int): GoalsEntity
+    suspend fun fetchGoalById(id: Int): GoalsEntity
 
 }

@@ -85,9 +85,9 @@ class NewGoalActivity : AppCompatActivity() {
             }
         }
 
-        val dao = (application as GoalApp).db.goalDao()
+        val goalsDao = (application as GoalApp).db.goalDao()
         binding?.btnSave?.setOnClickListener {
-            addToDatabase(dao)
+            addToDatabase(goalsDao)
 
         }
 
