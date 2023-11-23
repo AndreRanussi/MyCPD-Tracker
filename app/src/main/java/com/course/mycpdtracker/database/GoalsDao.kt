@@ -10,14 +10,15 @@ import kotlinx.coroutines.flow.Flow
 interface GoalsDao {
 
     @Upsert
-    suspend fun insertGoal(goals: Goals)
+    suspend fun insertUpdateGoal(goalsEntity: GoalsEntity)
 
     @Delete
-    suspend fun deleteGoal(goals: Goals)
+    suspend fun deleteGoal(goalsEntity: GoalsEntity)
 
-   @Query("SELECT * FROM goals ORDER BY startDate")
-   fun getGoals(): Flow<List<Goals>>
+   @Query("SELECT * FROM goalsentity ORDER BY startDate")
+   fun getGoals(): Flow<List<GoalsEntity>>
 
-    @Query("SELECT * FROM Goals WHERE id = id" )
-    fun getContactById(id: Int): Goals
+    @Query("SELECT * FROM GoalsEntity WHERE id = :id")
+    fun getContactById(id: Int): GoalsEntity
+
 }

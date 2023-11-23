@@ -5,9 +5,8 @@ import androidx.room.PrimaryKey
 
 
 @Entity
-data class Goals(
-    @PrimaryKey(autoGenerate = true)
-    val id:Int = 0,
+data class GoalsEntity(
+
     val title: String,
     val timeFrame: String,
     val category: String,
@@ -18,4 +17,6 @@ data class Goals(
     val startDate: String,
     val endDate: String,
     val completed: Boolean,
+    @PrimaryKey(autoGenerate = true)
+    val id:Int? =null,
 )

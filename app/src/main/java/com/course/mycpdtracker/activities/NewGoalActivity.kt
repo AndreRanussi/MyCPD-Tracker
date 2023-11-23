@@ -3,10 +3,16 @@ package com.course.mycpdtracker.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.course.mycpdtracker.R
+import com.course.mycpdtracker.database.GoalApp
+import com.course.mycpdtracker.database.GoalsDao
+import com.course.mycpdtracker.database.GoalsEntity
 import com.course.mycpdtracker.databinding.ActivityNewGoalBinding
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -30,12 +36,12 @@ class NewGoalActivity : AppCompatActivity() {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        var timeFrame: Array<String> = resources.getStringArray(R.array.timeFrame)
-        var timeFramaAdapter= ArrayAdapter(this, R.layout.dropdown_item, timeFrame)
+        val timeFrame: Array<String> = resources.getStringArray(R.array.timeFrame)
+        val timeFramaAdapter= ArrayAdapter(this, R.layout.dropdown_item, timeFrame)
         binding?.ddTimeFrame?.setAdapter(timeFramaAdapter)
 
-        var category: Array<String> = resources.getStringArray(R.array.categories)
-        var categoryAdapter = ArrayAdapter(this, R.layout.dropdown_item, category)
+        val category: Array<String> = resources.getStringArray(R.array.categories)
+        val categoryAdapter = ArrayAdapter(this, R.layout.dropdown_item, category)
         binding?.ddCategory?.setAdapter(categoryAdapter)
 
 
@@ -79,13 +85,80 @@ class NewGoalActivity : AppCompatActivity() {
             }
         }
 
+        val dao = (application as GoalApp).db.goalDao()
         binding?.btnSave?.setOnClickListener {
-
-
+            addToDatabase(dao)
 
         }
 
 
+
+    }
+
+    private fun addToDatabase(goalsDao: GoalsDao) {
+        val goalTitle = binding?.etGoalTitle?.text.toString()
+
+        var timeFrame = binding?.ddTimeFrame?.text.toString()
+        if (timeFrame == "Short-Term" ||
+            timeFrame == "Medium-Term" ||
+            timeFrame == "Long-Term"
+        ) {
+        } else {
+            binding?.ddTimeFrame?.text = null
+            timeFrame = null.toString()
+        }
+
+        var category = binding?.ddCategory?.text.toString()
+        if (category == "Personal" ||
+            category == "Professional" ||
+            category == "Academic"
+        ) {
+        } else {
+            binding?.ddCategory?.text = null
+            category = null.toString()
+        }
+
+        val goalDetails = binding?.etGoalDetails?.text.toString()
+        val actionRequired = binding?.etActionRequired?.text.toString()
+        val availableResources = binding?.etAvailableResources?.text.toString()
+        val successCriteria = binding?.etSuccessCriteria?.text.toString()
+        val startDate = binding?.etStartDate?.text.toString()
+        val endDate = binding?.etEndDate?.text.toString()
+
+
+        if(goalTitle.isBlank() ||
+            timeFrame.isBlank() ||
+            category.isBlank() ||
+            goalDetails.isBlank() ||
+            actionRequired.isBlank() ||
+            availableResources.isBlank() ||
+            successCriteria.isBlank() ||
+            startDate.isBlank() ||
+            endDate.isBlank()) {
+            Toast.makeText(this@NewGoalActivity, "All fields must be completed before saving a new goal", Toast.LENGTH_SHORT).show()
+        } else {
+            lifecycleScope.launch {
+                goalsDao.insertUpdateGoal(
+                    GoalsEntity(
+                        goalTitle,
+                        timeFrame,
+                        category,
+                        goalDetails,
+                        actionRequired,
+                        availableResources,
+                        successCriteria,
+                        startDate,
+                        endDate,
+                        false
+                    )
+                )
+
+                Toast.makeText(this@NewGoalActivity, "New goal added", Toast.LENGTH_SHORT).show()
+                finish()
+
+            }
+
+        }
 
     }
 
@@ -101,14 +174,6 @@ class NewGoalActivity : AppCompatActivity() {
         val date = sdf.parse(dateString)
         return date.time
     }
-
-
-
-
-
-
-
-
 
 
     override fun onDestroy() {
