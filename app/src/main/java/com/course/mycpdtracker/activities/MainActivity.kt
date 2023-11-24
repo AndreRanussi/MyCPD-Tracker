@@ -47,12 +47,12 @@ class MainActivity : AppCompatActivity() {
     private fun setUpListOfGoalsOnRecycleView(goalsList:ArrayList<GoalsEntity>, goalsDao: GoalsDao, ) {
         if (goalsList.isNotEmpty()){
          val itemAdapter = ItemAdapter(goalsList) { id, completed ->
-             goalsDao.updateCompletedStatus(id,completed)
 
-
-             Toast.makeText(this@MainActivity, "ID:$id, STATUS: $completed", Toast.LENGTH_SHORT).show()
-
+            lifecycleScope.launch {
+                goalsDao.updateCompletedStatus(id, completed)
              }
+         }
+
           binding?.rvGoalView?.layoutManager = LinearLayoutManager(this@MainActivity)
             binding?.rvGoalView?.adapter = itemAdapter
              }
