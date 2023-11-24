@@ -91,6 +91,10 @@ class NewGoalActivity : AppCompatActivity() {
 
         }
 
+        binding?.btnCancel?.setOnClickListener {
+            finish()
+        }
+
 
 
     }
@@ -138,7 +142,7 @@ class NewGoalActivity : AppCompatActivity() {
             Toast.makeText(this@NewGoalActivity, "All fields must be completed before saving a new goal", Toast.LENGTH_SHORT).show()
         } else {
             lifecycleScope.launch {
-                goalsDao.insertUpdateGoal(
+                goalsDao.insertGoal(
                     GoalsEntity(
                         goalTitle,
                         timeFrame,

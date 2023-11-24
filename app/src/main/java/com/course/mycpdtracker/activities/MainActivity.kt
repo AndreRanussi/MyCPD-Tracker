@@ -3,14 +3,15 @@ package com.course.mycpdtracker.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.course.mycpdtracker.database.GoalApp
 import com.course.mycpdtracker.database.GoalsDao
 import com.course.mycpdtracker.database.GoalsEntity
 import com.course.mycpdtracker.databinding.ActivityMainBinding
+import com.course.mycpdtracker.databinding.RecycleViewBoardTemplateBinding
 import com.course.mycpdtracker.recyclerview.ItemAdapter
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -31,12 +32,9 @@ class MainActivity : AppCompatActivity() {
         fetchAllGoals(goalsDao)
 
 
-
-
-
     }
 
-    fun fetchAllGoals(goalsDao: GoalsDao) {
+    private fun fetchAllGoals(goalsDao: GoalsDao) {
         lifecycleScope.launch {
             goalsDao.fetchAllGoals().collect() { goals ->
                 val list = ArrayList(goals)
@@ -46,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setUpListOfGoalsOnRecycleView(goalsList:ArrayList<GoalsEntity>, goalsDao: GoalsDao) {
+    private fun setUpListOfGoalsOnRecycleView(goalsList:ArrayList<GoalsEntity>, goalsDao: GoalsDao, ) {
         if (goalsList.isNotEmpty()){
          val itemAdapter = ItemAdapter(goalsList)
           binding?.rvGoalView?.layoutManager = LinearLayoutManager(this@MainActivity)
@@ -54,8 +52,11 @@ class MainActivity : AppCompatActivity() {
              }
     }
 
+
+
     override fun onDestroy() {
         super.onDestroy()
         binding = null
     }
 }
+
