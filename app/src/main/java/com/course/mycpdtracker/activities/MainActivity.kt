@@ -10,7 +10,6 @@ import com.course.mycpdtracker.database.GoalApp
 import com.course.mycpdtracker.database.GoalsDao
 import com.course.mycpdtracker.database.GoalsEntity
 import com.course.mycpdtracker.databinding.ActivityMainBinding
-import com.course.mycpdtracker.databinding.RecycleViewBoardTemplateBinding
 import com.course.mycpdtracker.recyclerview.ItemAdapter
 import kotlinx.coroutines.launch
 
@@ -51,6 +50,7 @@ class MainActivity : AppCompatActivity() {
             binding?.rvGoalView?.adapter = itemAdapter
              }
     }
+
 
 
 

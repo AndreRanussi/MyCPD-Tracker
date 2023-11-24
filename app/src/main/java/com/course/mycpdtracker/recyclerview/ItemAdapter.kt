@@ -8,8 +8,7 @@ import com.course.mycpdtracker.R
 import com.course.mycpdtracker.database.GoalsEntity
 import com.course.mycpdtracker.databinding.RecycleViewBoardTemplateBinding
 
-class ItemAdapter(private val items: ArrayList<GoalsEntity>
-): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+class ItemAdapter(private val items: ArrayList<GoalsEntity>): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     inner class ViewHolder (binding: RecycleViewBoardTemplateBinding) : RecyclerView.ViewHolder(binding.root){
         val tvTitle = binding.tvGoalTitle
