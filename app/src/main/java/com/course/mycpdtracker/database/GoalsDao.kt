@@ -17,10 +17,13 @@ interface GoalsDao {
     @Update(onConflict = REPLACE)
     suspend fun updateGoal(goalsEntity: GoalsEntity)
 
+    @Query("UPDATE GoalsEntity SET completed = :completed WHERE id = :id")
+    fun updateCompletedStatus (id: Int, completed: Boolean)
+
     @Delete
     suspend fun deleteGoal(goalsEntity: GoalsEntity)
 
-   @Query("SELECT * FROM goalsentity ORDER BY startDate")
+   @Query("SELECT * FROM GoalsEntity ORDER BY startDate")
    fun fetchAllGoals(): Flow<List<GoalsEntity>>
 
     @Query("SELECT * FROM GoalsEntity WHERE id = :id")

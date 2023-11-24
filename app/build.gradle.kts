@@ -44,11 +44,13 @@ android {
 
 dependencies {
 
+    implementation("org.apache.commons:commons-lang3:3.8.1")
     //Room
     val roomVersion = "2.6.0"
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
+
 
 
     // Default

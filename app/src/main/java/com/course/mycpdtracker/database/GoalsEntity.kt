@@ -16,7 +16,7 @@ data class GoalsEntity(
     val successCriteria: String,
     val startDate: String,
     val endDate: String,
-    val completed: Boolean,
+    val completed: Boolean = false,
     @PrimaryKey(autoGenerate = true)
-    val id:Int? =null,
+    val id:Int = 0,
 )
