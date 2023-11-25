@@ -10,16 +10,21 @@ import com.course.mycpdtracker.databinding.RecycleViewBoardTemplateBinding
 import org.apache.commons.lang3.math.NumberUtils
 
 class ItemAdapter(private val items: ArrayList<GoalsEntity>,
-                  private val checkBoxCompletedListener: (id:Int, completed:Boolean) -> Unit): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+                  private val checkBoxCompletedListener: (id:Int, completed:Boolean) -> Unit,
+                  private val itemClickListener: (id: Int) -> Unit)
+    : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
 
     inner class ViewHolder (binding: RecycleViewBoardTemplateBinding) : RecyclerView.ViewHolder(binding.root){
+        val clMain = binding.clMain
         val tvTitle = binding.tvGoalTitle
         val tvStart = binding.tvStartDate
         val tvEndDate = binding.tvEndDate
         val cbCompleted = binding.cbCompleted
         val ivStatusCircle = binding.ivStatusCircle
     }
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(RecycleViewBoardTemplateBinding
@@ -40,9 +45,12 @@ class ItemAdapter(private val items: ArrayList<GoalsEntity>,
         holder.cbCompleted.isChecked = item.completed
         holder.cbCompleted.setOnClickListener{
             checkBoxCompletedListener.invoke(item.id, (it as CheckBox).isChecked)
-            notifyDataSetChanged()
-
+//            notifyDataSetChanged()
         }
+
+        holder.clMain.setOnClickListener {
+            itemClickListener.invoke(item.id)
+            }
 
 
 
