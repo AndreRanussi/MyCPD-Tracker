@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
          },
              { id ->
                  val i = Intent(this, NewGoalActivity::class.java)
-                 Toast.makeText(this@MainActivity, "$id", Toast.LENGTH_SHORT).show()
+                 i.putExtra("id", id)
                  startActivity(i)
 
 

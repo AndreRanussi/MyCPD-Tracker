@@ -226,14 +226,15 @@
             app:layout_constraintTop_toBottomOf="@id/tiSuccessCriteria"
             app:layout_constraintEnd_toStartOf="@id/tiEndDate"
             >
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etStartDate"
                 style="@style/textNormal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date"
-               android:padding="8dp"
                 android:gravity="center"
+                android:inputType="date"
+                android:padding="8dp"
 
                 />
         </com.google.android.material.textfield.TextInputLayout>
