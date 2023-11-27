@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.course.mycpdtracker.R
 import com.course.mycpdtracker.database.GoalApp
@@ -26,6 +27,7 @@ class NewGoalActivity : AppCompatActivity() {
     private var binding: ActivityNewGoalBinding? = null
     private var id = 0
     private var updateRecordFlag = false
+    private var displayEditButtonFlag = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,18 +110,22 @@ class NewGoalActivity : AppCompatActivity() {
         }
 
         binding?.btnCancel?.setOnClickListener {
-             finish()
+            setViewToViewMode(goalsDao, id)
         }
 
+     }
 
 
-    }
+
 
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        if(updateRecordFlag){
-        menuInflater.inflate(R.menu.actionbar_menu, menu)}
+        if(updateRecordFlag) {
+            menuInflater.inflate(R.menu.actionbar_menu, menu)
+            val editIcon = menu?.findItem(R.id.action_edit)
+            editIcon?.setVisible(displayEditButtonFlag)
+        }
         return true
     }
 
@@ -138,10 +144,15 @@ class NewGoalActivity : AppCompatActivity() {
             binding?.btnSave?.visibility = View.VISIBLE
             binding?.btnCancel?.visibility = View.VISIBLE
 
+            displayEditButtonFlag = false
+            invalidateOptionsMenu()
+
+
 
 
      return true
     }
+
 
     private fun setViewToViewMode(goalsDao: GoalsDao, id: Int) {
         binding?.tiGoalTitle?.isEnabled = false
@@ -171,6 +182,9 @@ class NewGoalActivity : AppCompatActivity() {
             binding?.etStartDate?.setText(currentGoal.startDate)
             binding?.etEndDate?.setText(currentGoal.endDate)
         }
+
+        displayEditButtonFlag = true
+        invalidateOptionsMenu()
 
     }
 
@@ -265,6 +279,8 @@ class NewGoalActivity : AppCompatActivity() {
                         )
                     )
                     Toast.makeText(this@NewGoalActivity, "Record Updated Successfully", Toast.LENGTH_SHORT).show()
+                    displayEditButtonFlag = true
+                    invalidateOptionsMenu()
                     setViewToViewMode(goalsDao, id)
                 } catch (e: Exception) {
                     Toast.makeText(this@NewGoalActivity, "Error editing record", Toast.LENGTH_SHORT).show()
